@@ -1,0 +1,188 @@
+<!--I certify that this submission is my own original work.  Kathleen Paulson-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign Up Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+        
+    
+
+</head>
+<body>
+    
+    <div class="header">
+  <p><img src="images/Pages_logo.png" alt="Pages Bookstore Logo"/></p>
+</div>
+
+<div class="topnav">
+  <a href = "index.html">Home</a>
+</div>
+    
+    <div class="center2">
+    <p style="color: grey;">Please fill in this form to create an account.</p>
+    <br>
+
+    <table border="0" cellpadding="2" cellspacing="5" bgcolor="#eeeeee">
+    <th colspan="2" align="center">Create Account Form</th>
+      <form method="post" action="signup_process.php" onsubmit="return validate(this)">
+      
+        <tr>
+            <td><label for="username"><b>User Name</b></label></td>
+            <td><input type="text" maxlength="16" name="username" required><br></td>
+        </tr>     
+        <tr>
+            <td><label for="email"><b>Email</b></label></td>
+            <td><input type="text" maxlength="16" name="email" required><br></td>
+        </tr>      
+        <tr>       
+            <td><label for="password"><b>Password</b></label></td>
+            <td><input type="password" maxlength="16" 
+            name="password" required></td>
+        </tr>
+        <tr>
+            <td><label for="confirmpwd"><b>Confirm Password</b></label></td>
+            <td><input type="password" maxlength="16" 
+            name="confirmpwd" required></td>        
+        </tr>            
+        <tr>
+            <td><label for="firstname"><b>First Name</b></label></td>
+            <td><input type="text" maxlength="20" name="firstname" required><br></td>
+        </tr>  
+        <tr>
+            <td><label for="lastname"><b>Last Name</b></label></td>
+            <td><input type="text" maxlength="20" name="lastname" required><br></td>
+        </tr>  
+        <tr>
+            <td><label for="street_address"><b>Street Address</b></label></td>
+            <td><input type="text" maxlength="50" name="street_address" required><br></td>
+        </tr> 
+        <tr>
+            <td><label for="city"><b>City</b></label></td>
+            <td><input type="text" maxlength="50" name="city" required><br></td>
+        </tr> 
+        <tr>
+            <td><label for="state"><b>State</b></label></td>
+            <td><input type="text" maxlength="2" name="state" required><br></td>
+        </tr> 
+        <tr>
+            <td><label for="zip"><b>Zip Code</b></label></td>
+            <td><input type="text" maxlength="5" name="zip" required><br></td>
+        </tr> 
+        <tr class = "collapse">    
+            <td><input type="submit" name = "submit" value="Submit"></td>
+            <td><input type="reset" value="Reset"></td>
+        </tr>
+      </form>
+    </table>
+    </div>
+        
+    <footer>
+<p>
+Pages Bookstore &bull; 22 East Main Street &bull; Port Jefferson, NY 11777
+</p>
+</footer>
+
+
+<script>
+      function validate(form)
+      {
+        fail = validateUsername(form.username.value)
+        fail += validatePassword(form.password.value)
+        fail += validateEmail(form.email.value)
+        fail += validateConfirmpwd(form.password.value, form.confirmpwd.value)
+        fail += validateLastname(form.lastname.value)
+        fail += validateFirstname(form.firstname.value)
+        fail += validateCity(form.city.value)
+        fail += validateState(form.state.value)
+        fail += validateZip(form.zip.value)        
+      
+        if (fail == "")     return true
+        else { alert(fail); return false }
+      }
+      
+      function validateUsername(field)
+      {
+          if (field == "") return "No Username was entered.\n"
+          else if (field.length < 6)
+            return "Usernames must be at least 6 characters.\n"
+          else if (/[^a-zA-Z0-9_-]/.test(field))
+            return "Only a-z, A-Z, 0-9, - and _ allowed in Usernames.\n"
+          return ""
+      }
+      
+      function validatePassword(field)
+      {
+          if (field == "") return "No Password was entered.\n"
+          else if (field.length < 8)
+            return "Passwords must be at least 8 characters.\n"
+          else if (!/[a-z]/.test(field) || ! /[A-Z]/.test(field) ||
+                   !/[0-9]/.test(field))
+            return "Passwords require at least one each of a-z, A-Z and 0-9.\n"
+          return ""
+      }
+      
+      function validateEmail(field)
+      {
+        if (field == "") return "No Email was entered.\n"
+          else if (!((field.indexOf(".") > 0) &&
+                     (field.indexOf("@") > 0)) ||
+                    /[^a-zA-Z0-9.@_-]/.test(field))
+            return "The Email address is invalid.\n"
+        return ""
+      }
+
+      function validateConfirmpwd(pwd, confirmpwd)
+      {
+          if (confirmpwd == "") return "No confirm password was entered.\n"
+            else if (pwd !== confirmpwd)
+                   return "Password and confirm password do not match.\n"
+          return ""
+      }      
+      
+      function validateFirstname(field)
+      {
+          if (field == "") return "No first name was entered.\n"
+            return ""
+      } 
+      
+      function validateLastname(field)
+      {
+          if (field == "") return "No last name was entered.\n"
+            return ""
+      } 
+      
+      function validateCity(field)
+      {
+          if (field == "") return "No city was entered.\n"
+            return ""
+      } 
+      
+      function validateState(field)
+      {
+          if (field == "") return "No state was entered.\n"       
+            
+            else if (!/[A-Z]/.test(field))
+            return "State must be a 2 letter abbreviation, using only capital letters.\n"
+            return ""
+      } 
+      
+      function validateZip(field)
+      {
+          if (field == "") return "No zip was entered.\n"
+           else if (!/[0-9]/.test(field))
+            return "Zip code must be numeric.\n"
+          return ""  
+      }       
+	  
+	  
+      
+      
+     </script>
+    
+  </body>
+</html>
+
+
+

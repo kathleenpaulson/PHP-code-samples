@@ -1,0 +1,87 @@
+<!--I certify that this submission is my own original work.  Kathleen Paulson-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+            
+        <script>
+          function validate(form)
+          {
+            fail = validateUsername(form.username.value)
+            fail += validatePassword(form.password.value)          
+          
+            if (fail == "")     return true
+            else { alert(fail); return false }
+          }
+
+          function validateUsername(field)
+          {
+            if (field == "") 
+            {
+                return "No Username was entered.\n";
+            }                  
+            return "";
+          }
+
+          function validatePassword(field)
+          {
+            if (field == "") 
+            {
+                return "No Password was entered.\n"
+            }                 
+          return "";
+          }  
+        </script>
+  </head>
+  <body>
+      
+    <div class="header">
+  <p><img src="images/Pages_logo.png" alt="Pages Bookstore Logo"/></p>
+</div>
+
+<div class="topnav">
+  <a href = "index.html">Home</a>  
+  <a href = "logout.php">Log Out</a>
+</div>
+    
+    <div class="center2">
+    <p style="color: grey;">Please fill in this form to sign into your account.</p>
+    <br>
+    
+    <table border="0" cellpadding="2" cellspacing="5" bgcolor="#eeeeee">
+    <th colspan="2" align="center">Client Sign In Form</th>
+
+      <form method="post" action="login_process.php" 
+      onsubmit = "return validate(this)">
+      
+        <tr>
+            <td><label for="username"><b>User Name</b></label></td>
+            <td><input type="text" maxlength="16" name="username" 
+            title = "User Name" required><br></td>
+        </tr>          
+        <tr>       
+            <td><label for="password"><b>Password</b></label></td>
+            <td><input type="password" maxlength="12" 
+            name="password" title = "Password" required></td>
+        </tr>
+        
+        <tr class = "collapse">    
+            <td><input type="submit" name = "submit" value="Submit"></td>
+            <td><input type="reset" value="Reset"></td>
+        </tr>
+        
+        </form>
+    </table>
+    </div>
+        
+<footer>
+    <p>
+        Pages Bookstore &bull; 22 East Main Street &bull; Port Jefferson, NY 11777
+    </p>
+</footer>
+    
+  </body>
+</html>

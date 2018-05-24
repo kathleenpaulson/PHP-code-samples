@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Tangerine');     
+ * {
+    box-sizing: border-box;
+}    
+
+body {
+  margin: 0;  
+}
+
+
+.header {
+    background-color: #A9686D; 
+    padding: 2px;
+    text-align: center;
+    border: 1px solid white;        
+    border-style:double; 
+    border-width: 7px;
+}
+
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: #849c99;
+    border-style: inset;
+    border-width: 3px;
+}
+
+/* Style the topnav links */
+.topnav a {
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-weight: bold;
+    background: #849c99;
+    color: white;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+    background: white;
+    color: #849c99;
+}
+
+.column1 {
+    float: left;
+    width: 70%;
+    padding: 15px 250px 15px 15px;
+    
+}
+
+.column2 {
+    width: auto;
+    padding: 15px;    
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+footer {
+    font-family: 'Tangerine', serif;
+    font-size: 35px;  
+    word-spacing: 5px;     
+    font-style:italic; 
+    border-style:double; 
+    border-width: 7px;
+    font-weight: bold;       
+    clear: both;
+    text-align: center;         
+    width: 100%;   
+    color: #576c27;
+    background: #e1ecc7;
+    border-color: #708245;
+    
+}
+
+.center  {text-align: center}
+
+.dark_grey {color: #404040;}
+
+.darkgreen {color: #576c27;}
+
+.center2 {
+    margin: auto;
+    width: 25%;
+    padding: 20px;
+}
+
+.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
